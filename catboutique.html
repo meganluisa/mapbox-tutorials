@@ -1,0 +1,163 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title>Add an icon to the map</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.41.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.41.0/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        body { margin:0; padding:1em; font-family: sans-serif; background-color: #fff; }
+        nav { height: 3em; border-bottom: 2px solid #555; }
+        nav span { font-size: 2em; font-weight: bold; }
+        #map { height:200px; width:100%; border: 1px solid #555; animation: all 0.3s; display: none; }
+        #mainContainer { width: 70%; }
+        #mapButton { margin: 0.5em 0em; font-size: 2em; }
+        .item { width: 90%; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <span>My Cat Boutique 😻</span>
+</nav>
+<div id='mainContainer'>
+    <h2>The finest cat grooming & fashion</h2>
+    <div class='item' id='content'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam aliquam vitae optio, cum est dignissimos omnis voluptatibus sapiente laboriosam aperiam maxime dolorum explicabo consequuntur quae! Porro commodi rerum sint! </div>
+    <button id='mapButton' onclick="mapExpand()">Visit us!</button>
+    <div class='item' id='map'></div>    
+</div>
+
+
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoiZGFuc3dpY2siLCJhIjoiY2l1dTUzcmgxMDJ0djJ0b2VhY2sxNXBiMyJ9.25Qs4HNEkHubd4_Awbd8Og';
+
+var map = new mapboxgl.Map({
+    container: 'map',
+    center: [-93.2507,44.9864],
+    zoom: 14,
+    style: 'mapbox://styles/mapbox/streets-v9'
+});
+
+map.on('load', function() {
+    map.loadImage('https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Cat_silhouette.svg/400px-Cat_silhouette.svg.png', function(error, image) {
+        if (error) throw error;
+        map.addImage('cat', image);
+        map.addLayer({
+            "id": "points",
+            "type": "symbol",
+            "source": {
+                "type": "geojson",
+                "data": {
+                    "type": "FeatureCollection",
+                    "features": [{
+                        "type": "Feature",
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [-93.2507,44.9864]
+                        }
+                    }]
+                }
+            },
+            "layout": {
+                "icon-image": "cat",
+                "icon-size": 0.25
+            }
+        });
+    });
+});
+
+function mapExpand() {
+    var myMap = document.getElementById('map');
+    myMap.setAttribute("style", "display:block");
+    var mapDiv = document.getElementById('map');
+    if (mapDiv.style.display === 'block') console.log("Yay"); map.resize();
+
+}
+
+</script>
+
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title>Add an icon to the map</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.41.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.41.0/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        body { margin:0; padding:1em; font-family: sans-serif; background-color: #fff; }
+        nav { height: 3em; border-bottom: 2px solid #555; }
+        nav span { font-size: 2em; font-weight: bold; }
+        #map { height:0px; width:100%; border: 1px solid #555; animation: all 0.3s; }
+        #mainContainer { width: 70%; }
+        #mapButton { margin: 0.5em 0em; font-size: 2em; }
+        .item { width: 90%; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <span>My Cat Boutique 😻</span>
+</nav>
+<div id='mainContainer'>
+    <h2>The finest cat grooming & fashion</h2>
+    <div class='item' id='content'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam aliquam vitae optio, cum est dignissimos omnis voluptatibus sapiente laboriosam aperiam maxime dolorum explicabo consequuntur quae! Porro commodi rerum sint! </div>
+    <button id='mapButton' onclick="mapExpand()">Visit us!</button>
+    <div class='item' id='map'></div>    
+</div>
+
+
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoiZGFuc3dpY2siLCJhIjoiY2l1dTUzcmgxMDJ0djJ0b2VhY2sxNXBiMyJ9.25Qs4HNEkHubd4_Awbd8Og';
+
+var map = new mapboxgl.Map({
+    container: 'map',
+    center: [-93.2507,44.9864],
+    zoom: 14,
+    style: 'mapbox://styles/mapbox/streets-v9'
+});
+
+map.on('load', function() {
+    map.loadImage('https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Cat_silhouette.svg/400px-Cat_silhouette.svg.png', function(error, image) {
+        if (error) throw error;
+        map.addImage('cat', image);
+        map.addLayer({
+            "id": "points",
+            "type": "symbol",
+            "source": {
+                "type": "geojson",
+                "data": {
+                    "type": "FeatureCollection",
+                    "features": [{
+                        "type": "Feature",
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [-93.2507,44.9864]
+                        }
+                    }]
+                }
+            },
+            "layout": {
+                "icon-image": "cat",
+                "icon-size": 0.25
+            }
+        });
+    });
+});
+
+function mapExpand() {
+    var myMap = document.getElementById('map');
+    myMap.setAttribute("style", "height:200px");
+    map.resize();
+}
+
+</script>
+
+</body>
+</html>
